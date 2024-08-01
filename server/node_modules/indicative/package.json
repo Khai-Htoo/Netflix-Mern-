@@ -1,0 +1,90 @@
+{
+  "name": "indicative",
+  "version": "7.4.4",
+  "description": "Concise data validation library for Node.js and browsers",
+  "main": "index.js",
+  "files": [
+    "src",
+    "index.d.ts",
+    "index.js",
+    "sanitizer.d.ts",
+    "sanitizer.js",
+    "validator.d.ts",
+    "validator.js"
+  ],
+  "scripts": {
+    "mrm": "mrm --preset=@adonisjs/mrm-preset",
+    "pretest": "npm run lint",
+    "test": "node japaFile.js",
+    "lint": "eslint . --ext=.ts",
+    "clean": "del build",
+    "compile": "npm run lint && npm run clean && tsc",
+    "build": "npm run compile",
+    "commit": "git-cz",
+    "release": "np && cp package.json build && cd build && npm publish",
+    "postpublish": "git clean -fd",
+    "version": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/poppinss/indicative.git"
+  },
+  "keywords": [
+    "validator",
+    "schema-validator",
+    "node-validator"
+  ],
+  "author": "virk,poppinss",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/poppinss/indicative/issues"
+  },
+  "homepage": "https://github.com/poppinss/indicative#readme",
+  "devDependencies": {
+    "@adonisjs/mrm-preset": "^2.2.3",
+    "@types/node": "^13.1.0",
+    "benchmark": "^2.1.4",
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "^3.0.2",
+    "del-cli": "^3.0.0",
+    "doctoc": "^1.4.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-adonis": "^1.0.4",
+    "husky": "^3.1.0",
+    "japa": "^3.0.1",
+    "mrm": "^2.0.2",
+    "np": "^5.2.1",
+    "reflect-metadata": "^0.1.13",
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.4"
+  },
+  "nyc": {
+    "exclude": [
+      "test"
+    ],
+    "extension": [
+      ".ts"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "node ./node_modules/@adonisjs/mrm-preset/validateCommit/conventional/validate.js"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "np": {
+    "contents": ".",
+    "anyBranch": false,
+    "publish": false
+  },
+  "dependencies": {
+    "indicative-compiler": "^7.2.4",
+    "indicative-formatters": "^7.2.4",
+    "indicative-parser": "^7.1.4",
+    "indicative-rules": "^7.3.1"
+  }
+}
